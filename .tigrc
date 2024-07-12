@@ -1,0 +1,15 @@
+# Misc
+# ---------------
+
+set refresh-mode = auto # Enum: manual, auto, after-command, periodic
+
+# Custom bindings
+# ---------------
+
+bind refs a !@git branch "%(prompt Enter branch name: )"            # Create a new branch
+bind refs M !@git branch -m "%(prompt Enter new branch name to rename current branch to: )" # Rename current branch
+bind status D !@?rm %(file)                                         # Delete a file
+bind status P !git push origin                                      # Push local changes to origin
+bind refs U !@git remote update                                     # Update remotes
+bind generic 9 !@bash -c "git rev-parse --short %(commit) | pbcopy" # Copy short sha-1 of commit to clipboard
+bind main <C-r> !git rebase -i %(commit)^                          # Rebase interactively from commit
